@@ -28,7 +28,7 @@ const getInitialData  = (contestId, apiData)  =>  {
 };
 
 const serverRender = (contestId) =>  {
-  axios.get(getApiUrl(contestId))
+  return axios.get(getApiUrl(contestId))
   .then(resp => {
     const initialData = getInitialData(contestId, resp.data);
     return  {

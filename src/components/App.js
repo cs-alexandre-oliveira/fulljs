@@ -18,7 +18,7 @@ class App extends React.Component {
   };
   state = this.props.initialData;
   componentDidMount() {
-    onPopState = ((event)  =>  {
+    window.onPopState = ((event)  =>  {
       this.setState({
         currentContestId:(event.state || {}).currentContestId
       });
