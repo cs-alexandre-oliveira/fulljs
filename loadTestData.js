@@ -2,9 +2,9 @@ import { MongoClient } from 'mongodb';
 import assert from 'assert';
 import config from './config';
 
-MongoClient.connect(config.mongodbUri, (err, db) => {
-  assert.equal(null, err);
+console.log('>>>>>>> ', config.mongodbUri)
 
+MongoClient.connect(config.mongodbUri, (err, db) => {
   db.collection('contests').insertMany([
     { id: 1, categoryName: 'Business/Company', contestName: 'Cognitive Building Bricks',
       description: `
@@ -42,5 +42,5 @@ A list of free online programming books, categorized by languages/topics
       console.info('Names', response.insertedCount);
       db.close();
     });
-  });
+  })
 });

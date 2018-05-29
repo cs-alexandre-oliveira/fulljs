@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node server.js --ignore public/",
+    "start:babel": "node -r babel-node",
     "dev": "webpack -wd"
   },
   "repository": {
