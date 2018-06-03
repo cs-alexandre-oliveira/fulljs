@@ -16,23 +16,23 @@ server.use(sassMiddleware({
 
 server.set('view engine', 'ejs');
 
-server.get(['/', '/contest/:contestId'], (req, res)  =>  {
+server.get(['/', '/contest/:contestId'], (req, res) => {
   serverRender(req.params.contestId)
-  .then(({ initialMarkup, initialData }) =>  {
-    res.render('index', {
-      initialMarkup,
-      initialData
+    .then(({ initialMarkup, initialData }) => {
+      res.render('index', {
+        initialMarkup,
+        initialData
+      });
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(404).send('Bad Request');
     });
-  })
-  .catch(error  =>  {
-    console.error(error);
-    res.status(404).send('Bad Request');
-  });
 });
 
 server.use('/api', apiRouter);
 server.use(express.static('public'));
 
-server.listen(config.port,  config.host, ()  =>  {
-  console.info('Xpress listening on port', config.port);
+server.listen(config.port, config.host, () => {
+  console.info('Express listening on port', config.port);
 });
