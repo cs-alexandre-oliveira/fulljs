@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class ContestPreview extends Component {
-  handleClick = ()  =>  {
+  handleClick = () => {
     this.props.onClick(this.props._id);
   };
   render() {
@@ -18,12 +18,11 @@ class ContestPreview extends Component {
   }
 }
 
-ContestPreview.propTypes  = {
+ContestPreview.propTypes = {
   _id: React.PropTypes.string.isRequired,
   categoryName: React.PropTypes.string.isRequired,
   contestName: React.PropTypes.string.isRequired,
   onClick: React.PropTypes.func.isRequired,
-
 };
 
 export default ContestPreview;
